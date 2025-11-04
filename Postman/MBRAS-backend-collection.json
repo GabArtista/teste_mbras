@@ -1,0 +1,43 @@
+{
+  "info": {
+    "name": "MBRAS Backend Challenge",
+    "_postman_id": "00000000-0000-0000-0000-000000000001",
+    "description": "Coleção Postman para validar o endpoint de análise de sentimentos da MBRAS.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Analyze Feed",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"messages\": [\n    {\n      \"id\": \"msg_001\",\n      \"content\": \"Adorei o produto!\",\n      \"timestamp\": \"2025-09-10T10:00:00Z\",\n      \"user_id\": \"user_123\",\n      \"hashtags\": [\"#produto\"],\n      \"reactions\": 10,\n      \"shares\": 2,\n      \"views\": 100\n    }\n  ],\n  \"time_window_minutes\": 30\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/analyze-feed",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "analyze-feed"
+          ]
+        },
+        "description": "Executa a análise completa de um feed de mensagens."
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8000"
+    }
+  ]
+}
